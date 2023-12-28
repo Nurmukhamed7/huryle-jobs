@@ -1,30 +1,20 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import { reactive, toRefs, ref } from 'vue'
+import Job from './types/Job'
+
+const jobs = ref<Job[]>([
+	{ title: 123, location: 'ranch', salary: 44654, id: '1' },
+	{ title: 'quarryman', location: 'mounatain', salary: 12313, id: '2' },
+	{ title: 'flute player', location: 'wood', salary: 34535, id: '3' },
+	{ title: 'fisherman', location: 'lake', salary: 75456, id: '4' },
+	{ title: 'guard', location: 'valley', salary: 23452, id: '5' },
+])
+
+console.log(typeof jobs.value[0]?.title)
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+	<div class="app">{{ jobs[0].location }}</div>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+<style scoped></style>
